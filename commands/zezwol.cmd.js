@@ -10,6 +10,16 @@ module.exports.run = async (bot,message,args) => {
         if(message.member.voice.channel.name.includes("Pokój "+message.member.user.username)){
             if(args.length==1){
                 let member = message.mentions.members.first();
+                if(member==message.member){
+                    var kanal = message.channel;
+                    const exampleEmbed = new MessageEmbed()
+	                .setColor('#ff0000')
+                    .setTitle('BŁĄD')
+                    .setDescription(`Nie możesz sobie dać dostępu!`)
+                    .setTimestamp()
+                    .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
+                    kanal.send(exampleEmbed); 
+                }else{
                 if(member){
                     message.member.voice.channel.createOverwrite(member, {
                         CONNECT: true
@@ -34,6 +44,7 @@ module.exports.run = async (bot,message,args) => {
                     .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
                     kanal.send(exampleEmbed);    
                 }
+            }
             } else{
                 var kanal = message.channel;
                 const exampleEmbed = new MessageEmbed()

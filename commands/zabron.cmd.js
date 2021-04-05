@@ -18,7 +18,7 @@ module.exports.run = async (bot,message,args) => {
                         const exampleEmbed = new MessageEmbed()
                         .setColor('#00ff00')
                         .setTitle('SUKCES')
-                        .setDescription(`**${member.user.tag}** ma teraz dostęp do twojego kanału!`)
+                        .setDescription(`**${member.user.tag}** nie ma teraz dostępu do twojego kanału!`)
                         .setTimestamp()
                         .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
                         kanal.send(exampleEmbed); 
@@ -29,7 +29,7 @@ module.exports.run = async (bot,message,args) => {
                     const exampleEmbed = new MessageEmbed()
 	                .setColor('#ff0000')
                     .setTitle('BŁĄD')
-                    .setDescription(`Oznacz poprawną osobę, której chcesz dać dostęp do kanału!`)
+                    .setDescription(`Oznacz poprawną osobę, której chcesz zablokować dostęp do kanału!`)
                     .setTimestamp()
                     .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
                     kanal.send(exampleEmbed);    
@@ -39,7 +39,7 @@ module.exports.run = async (bot,message,args) => {
                 const exampleEmbed = new MessageEmbed()
 	                .setColor('#ff0000')
                     .setTitle('BŁĄD')
-                    .setDescription(`Oznacz jedną osobę, której chcesz dać dostęp do kanału!`)
+                    .setDescription(`Oznacz jedną osobę, której chcesz zablokować dostęp do kanału!`)
                     .setTimestamp()
                     .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
                     kanal.send(exampleEmbed);
@@ -49,7 +49,7 @@ module.exports.run = async (bot,message,args) => {
                     const exampleEmbed = new MessageEmbed()
 	                .setColor('#ff0000')
                     .setTitle('BŁĄD')
-                    .setDescription(`Nie możesz dać dostępu do tego kanału! (BRAK UPRAWNIEŃ)`)
+                    .setDescription(`Nie możesz zablokować dostępu do tego kanału! (BRAK UPRAWNIEŃ)`)
                     .setTimestamp()
                     .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
                     kanal.send(exampleEmbed);   
@@ -66,7 +66,7 @@ module.exports.run = async (bot,message,args) => {
     }
 }
 module.exports.help = {
-    name: 'zezwol',
+    name: 'zabron',
     description: 'Test command'
 } 
     
