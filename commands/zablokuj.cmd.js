@@ -7,7 +7,7 @@ var parrotzy_ver = config.version;
 module.exports.run = async (bot,message,args) => {
     console.log(args)
     if(message.member.voice.channel){
-        if(message.member.voice.channel.name.includes("Pokój "+message.member.user.username)){
+        if(message.member.voice.channel.name.includes("Pokój "+message.member.user.tag)){
             let voiceChannel = message.member.voice.channel;
             voiceChannel.createOverwrite(message.guild.roles.everyone, {
                 CONNECT: false,
