@@ -9,7 +9,7 @@ module.exports.run = async (bot,message,args) => {
                 const exampleEmbed = new MessageEmbed()
 	                .setColor('#0099ff')
                     .setTitle('Komendy Parrotzy')
-                    .setDescription(`Dostępne komendy dla Ciebie:\n\n\`${prefix}help\`\nWyświetla listę komend\n\n\`${prefix}wyrzuc <@Oznacz>\`\nWyrzuca osobę z twojego kanału głosowego\n\n\`${prefix}zablokuj\`\nBlokuje kanał przed dołączaniem\n\n\`${prefix}odblokuj\`\nOdblokowywuje twój kanał głosowy.\n\n\`${prefix}zezwol <@Oznacz>\`\nPozwala osobie dołączać na twój kanał głosowy\n\n\`${prefix}zabron <@Oznacz>\`\nZabriera osobie dostęp na twój kanał głosowy`)
+                    .setDescription(`Dostępne komendy dla Ciebie:\n\n\`${prefix}help\`\nWyświetla listę komend\n\n\`${prefix}wyrzuc <@Oznacz>\`\nWyrzuca osobę z twojego kanału głosowego\n\n\`${prefix}zablokuj\`\nBlokuje kanał przed dołączaniem\n\n\`${prefix}odblokuj\`\nOdblokowywuje twój kanał głosowy.\n\n\`${prefix}zezwol <@Oznacz>\`\nPozwala osobie dołączać na twój kanał głosowy\n\n\`${prefix}zabron <@Oznacz>\`\nZabiera osobie dostęp na twój kanał głosowy\n\n\`${prefix}limit <LimitOsób>\`\nUstawia limit osób na kanale`)
                     .setTimestamp()
                     .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL()}`);
                     kanal.send(exampleEmbed);

@@ -3,6 +3,8 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const { Client, MessageEmbed, Presence, GuildMemberManager, DiscordAPIError } = require('discord.js');
 const bot = new Discord.Client({disableEveryone: true});
+const WOKCommands = require('wokcommands');
+const env = require('dotenv');
 const config = require('./config.json');
 const fs = require('fs');
 
@@ -55,14 +57,16 @@ bot.on('voiceStateUpdate', (oldUser, newUser) =>{
     let oldChannel = oldUser.channel;
     let newChannel = newUser.channel;
     let name = `🎮・Pokój ${oldUser.member.user.tag}`
-    if(newUser.channelID=="828246035902103552"){
-       newUser.guild.channels.create(name,{
-           type: 'voice',
-           userLimit: 10,
-           parent: newChannel.parentID
-       }).then(result => {
-        newUser.setChannel(result)
-       })
+    if(newUser.channel!=null){     
+        if(newUser.channel.name=="➕・Utwórz Kanał"){
+        newUser.guild.channels.create(name,{
+            type: 'voice',
+            userLimit: 10,
+            parent: newChannel.parentID
+        }).then(result => {
+            newUser.setChannel(result)
+        })
+        }
     }
     if(oldChannel != newChannel){
         if(newChannel==null){
@@ -137,13 +141,13 @@ bot.on('guildCreate', guild => {
 });
 
 //Logi
-bot.on('message', (message) => {
-    var d = new Date();
-    if(!message.author.bot){
-        var datestring = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-        console.log("["+datestring+"]"+"("+message.guild.name+")"+message.author.tag+" > "+message.content)
-    }
-});
+// bot.on('message', (message) => {
+//     var d = new Date();
+//     if(!message.author.bot){
+//         var datestring = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+//         console.log("["+datestring+"]"+"("+message.guild.name+")"+message.author.tag+" > "+message.content)
+//     }
+// });
 
 //Komendy
 bot.on('message', async (message) =>{
@@ -222,4 +226,4 @@ bot.on('message', async (message) =>{
 
 
 
-bot.login(config.token);
+bot.login(process.env.TOKEN);
